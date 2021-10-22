@@ -1,0 +1,48 @@
+#!/bin/bash
+
+# Get filename from cl args. Save hard coded class header
+filename=$1
+
+# Get the optional filetype from cl args. Expecting either 'main' or 'class'.
+# Can be extended.
+filetype=${2:-false}
+
+# The required class header.
+header="/*
+ * Name:              Reed McFadden
+ * Student Number:    9256-13629
+ * Course:            Advanced Programming Concepts
+ * Section Number:    031
+ * Assignment Number: 07
+*/
+
+"
+
+# The java main string
+javamain="public static void main(String args[]) {
+
+}
+"
+
+# The java class string
+javaclass="class REPLACE_TEXT {
+
+}
+"
+
+# Create the new file, put the header into it
+touch $filename
+echo "$header" >> $filename
+
+# Append the appropriate file string
+if [[ $filetype == "main" ]]
+then
+	echo "$javamain" >> $filename
+elif [[ $filetype == "class" ]]
+then
+	echo "$javaclass" >> $filename
+# else do nothing. no file type was specified.
+fi
+
+# Now that the file is ready, vim into it.
+vim $filename
