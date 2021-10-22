@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# check for a good vim install
+if [ -z "$(which vim)" -o -z "$(which vimtutor)" ]; then
+  echo "Warning, doesn't look like you have full Vim version."
+fi
+
+# link vimrc
+ln -sf "$PWD/.vimrc"    "$HOME/.vimrc"
+
+# create necessary .vim dirs and link plug.vim
+mkdir "$HOME/.vim/" "$HOME/.vim/autoload"
+ln -sf "$PWD/.vim/autoload/plug.vim" "$HOME/.vim/autoload/plug.vim"
