@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# todo create and vim into file based on current isosec. file will be created in
-# $HOME/repos/zettelkasten/<filename>. append the passed in title arg to the
-# unique identifier to give some context and reduce dependence on git commits to
-# identify the file topic
+# this script creates a new zettel file with a unique time-based identifier
+# and title as the filename. the file is then opened in vim for immediate 
+# editing and returns to the directory the script was called from when
+# done editing
 
 # display the script usage and description
 display_usage() {
