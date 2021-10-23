@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# todo create and vim into file based on current isosec. file will be created in
+# $HOME/repos/zettelkasten/<filename>. append the passed in title arg to the
+# unique identifier to give some context and reduce dependence on git commits to
+# identify the file topic
+
+# display the script usage and description
+display_usage() {
+    echo -e "Usage: \$0 [zettel-title] \n"
+    echo -e "Description: This script is for creating a new zettelkasten slip."
+}
+
+# if a title was not passed in for the zettel
+if [[ $# -le 0 ]]; then
+    display_usage
+    exit 1
+fi
+
+# create the new zettel file
+zettel_file=$HOME/repos/zettelkasten/`isosec`-$1.md
+cd $HOME/repos/zettelkasten/
+touch $zettel_file
+
+# append title section
+echo -e "$1\n---" >> $zettel_file
+
+# append tags section
+echo -e "\n\n---\nTags:\n\n---" >> $zettel_file
+
+# append references area
+echo -e "\nReferences:\n\n---" >> $zettel_file
+
+# Vim into the new zettelkasten file
+vim $zettel_file
+
+# when done editing file, cd - to return to where you were
+cd -
