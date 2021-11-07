@@ -103,8 +103,10 @@ alias l='ls -CF'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # alias for easily cd'ing (jumping) to frequently used directories
-alias zets='cd $ZETTELS'
+alias dotfiles='cd $DOTFILES'
+alias repos='cd $REPOS'
 alias scripts='cd $SCRIPTS'
+alias zets='cd $ZETTELS'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
