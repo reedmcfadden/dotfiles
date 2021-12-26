@@ -3,10 +3,14 @@
 # for examples
 
 # environment variables 
+export NOTES="$HOME/Documents/notes"
 export REPOS="$HOME/repos"
 export DOTFILES="$REPOS/dotfiles"
 export SCRIPTS="$DOTFILES/scripts"
 export ZETTELS="$REPOS/zettelkasten"
+export TERM=xterm-256color
+
+color_prompt=yes
 
 # If not running interactively, don't do anything
 case $- in
@@ -40,16 +44,6 @@ shopt -s checkwinsize
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
-
-# set a fancy prompt (non-color, unless we know we "want" color)
-case "$TERM" in
-    xterm-color|*-256color) color_prompt=yes;;
-esac
-
-# uncomment for a colored prompt, if the terminal has the capability; turned
-# off by default to not distract the user: the focus in a terminal window
-# should be on the output of commands, not on the prompt
-#force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
@@ -103,6 +97,7 @@ alias l='ls -CF'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # alias for easily cd'ing (jumping) to frequently used directories
+alias notes='cd $NOTES'
 alias dotfiles='cd $DOTFILES'
 alias repos='cd $REPOS'
 alias scripts='cd $SCRIPTS'
@@ -136,3 +131,5 @@ export GPG_TTY
 # Set default key
 export GPGKEY=26A12E7591B416E1
 # END GPG KEY -------------------------------------------------------------------
+
+force_color_prompt=yes
