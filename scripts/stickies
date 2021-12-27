@@ -1,0 +1,3 @@
+#!/bin/sh
+
+vim $REPOS/notes/stickies.md
