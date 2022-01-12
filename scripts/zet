@@ -37,4 +37,4 @@ echo -e "\nReferences:\n\n---" >> "$zettel_file"
 vim "$zettel_file"
 
 # when done editing file, cd - to return to where you were
-cd -
+# cd -

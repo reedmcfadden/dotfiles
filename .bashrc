@@ -4,6 +4,7 @@
 
 # environment variables 
 export NOTES="$HOME/Documents/notes"
+export DAILY="$HOME/repos/daily"
 export REPOS="$HOME/repos"
 export DOTFILES="$REPOS/dotfiles"
 export SCRIPTS="$DOTFILES/scripts"
@@ -98,6 +99,7 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 # alias for easily cd'ing (jumping) to frequently used directories
 alias notes='cd $NOTES'
+alias daily='cd $DAILY'
 alias dotfiles='cd $DOTFILES'
 alias repos='cd $REPOS'
 alias scripts='cd $SCRIPTS'
@@ -124,12 +126,9 @@ if ! shopt -oq posix; then
 fi
 
 # START GPG KEY -----------------------------------------------------------------
-# Set GPG_TTY to reflect the output of the tty command.
-GPG_TTY=$(tty)
-export GPG_TTY
+# if [ -r ~/.bash_profile ]; then echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile; \
+#   else echo 'export GPG_TTY=$(tty)' >> ~/.profile; fi
 
-# Set default key
-export GPGKEY=26A12E7591B416E1
 # END GPG KEY -------------------------------------------------------------------
 
 force_color_prompt=yes
