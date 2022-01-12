@@ -3,7 +3,7 @@
 # for examples
 
 # environment variables 
-export NOTES="$HOME/Documents/notes"
+export NOTES="$HOME/repos/notes"
 export DAILY="$HOME/repos/daily"
 export REPOS="$HOME/repos"
 export DOTFILES="$REPOS/dotfiles"

@@ -17,16 +17,18 @@ echo "$filename \n---\n" >> "$filepath"
 # create a Planned section
 echo "### Planned:\n\n" >> "$filepath"
 
-# add defaults
-echo "1. ~30 mins yoga\n" >> "$filepath"
-echo "1. affirmations\n" >> "$filepath"
-echo "1. take breaks\n" >> "$filepath"
-echo "1. rest eyes\n" >> "$filepath"
-echo "1. school work\n" >> "$filepath"
-echo "1. side courses, projects, open source\n" >> "$filepath"
+# add recurring tasks/reminders
+echo "Recurring tasks/reminders" >> "$filepath"
+echo "1. ~30 mins yoga, and ~10 mins affirmations" >> "$filepath"
+echo "1. take breaks, and rest eyes" >> "$filepath"
+echo "1. school work" >> "$filepath"
+echo "1. side courses, projects, open source" >> "$filepath"
 echo "1. for breaks: good weather = walk/read outside. otherwise,
-read paper books/puzzles/etc. inside\n" >> "$filepath"
+read paper books/puzzles/etc. inside" >> "$filepath"
 
+# add section for specific daily tasks
+echo "Daily tasks:\n" >> "$filepath"
+echo "1. " >> "$filepath"
 
 # create a break between planned and done
 echo "---\n\n" >> "$filepath"
