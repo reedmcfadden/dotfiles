@@ -24,6 +24,8 @@ echo "1. take breaks\n" >> "$filepath"
 echo "1. rest eyes\n" >> "$filepath"
 echo "1. school work\n" >> "$filepath"
 echo "1. side courses, projects, open source\n" >> "$filepath"
+echo "1. for breaks: good weather = walk/read outside. otherwise,
+read paper books/puzzles/etc. inside\n" >> "$filepath"
 
 
 # create a break between planned and done
