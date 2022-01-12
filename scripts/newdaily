@@ -1,0 +1,37 @@
+#!/bin/sh
+
+# todo some checking for a daily for the current day would be good
+
+# save off the filename based on the current date
+filename=$(short_date).md
+
+# save off the absolute file path
+filepath="$DAILY/$filename"
+
+# create the file in the daily repo
+touch "$filepath"
+
+# write title to top of file
+echo "$filename \n---\n" >> "$filepath"
+
+# create a Planned section
+echo "### Planned:\n\n" >> "$filepath"
+
+# add defaults
+echo "1. ~30 mins yoga\n" >> "$filepath"
+echo "1. affirmations\n" >> "$filepath"
+echo "1. take breaks\n" >> "$filepath"
+echo "1. rest eyes\n" >> "$filepath"
+echo "1. school work\n" >> "$filepath"
+echo "1. side courses, projects, open source\n" >> "$filepath"
+
+
+# create a break between planned and done
+echo "---\n\n" >> "$filepath"
+
+# create a Done section
+echo "### Done:\n\n" >> "$filepath"
+
+
+# vim into the file for editing
+vim "$DAILY/$filename"

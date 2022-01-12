@@ -31,3 +31,5 @@ export PATH=$PATH:/usr/local/go/bin
 
 # Add scripts to class path
 export PATH=$PATH:$HOME/scripts
+
+export GPG_TTY=$(tty)
