@@ -28,7 +28,7 @@ read paper books/puzzles/etc. inside" >> "$filepath"
 
 # add section for specific daily tasks
 echo "\nDaily tasks:" >> "$filepath"
-echo "1. " >> "$filepath"
+echo "1. \n" >> "$filepath"
 
 # create a break between planned and done
 echo "---\n\n" >> "$filepath"
