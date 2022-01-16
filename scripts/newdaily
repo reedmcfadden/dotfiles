@@ -27,7 +27,7 @@ echo "1. for breaks: good weather = walk/read outside. otherwise,
 read paper books/puzzles/etc. inside" >> "$filepath"
 
 # add section for specific daily tasks
-echo "Daily tasks:\n" >> "$filepath"
+echo "\nDaily tasks:" >> "$filepath"
 echo "1. " >> "$filepath"
 
 # create a break between planned and done
