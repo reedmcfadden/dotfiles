@@ -9,6 +9,7 @@ export REPOS="$HOME/repos"
 export DOTFILES="$REPOS/dotfiles"
 export SCRIPTS="$DOTFILES/scripts"
 export ZETTELS="$REPOS/zettelkasten"
+export CLASSES="$HOME/Documents/sau/classes"
 export TERM=xterm-256color
 
 color_prompt=yes
@@ -104,6 +105,7 @@ alias dotfiles='cd $DOTFILES'
 alias repos='cd $REPOS'
 alias scripts='cd $SCRIPTS'
 alias zets='cd $ZETTELS'
+alias classes='cd $CLASSES'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like

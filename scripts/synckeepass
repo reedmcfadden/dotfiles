@@ -1,7 +1,0 @@
-#!/bin/sh
-
-# sync to pcloud
-rsync $HOME/keepass/Database.kdbx $HOME/pCloudDrive/Applications/Keepass2Android/Database.kdbx
-
-# sync to external hard drive
-rsync $HOME/keepass/Database.kdbx "/media/reed/Seagate Backup Plus Drive/Database.kdbx" 
