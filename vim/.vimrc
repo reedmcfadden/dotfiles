@@ -105,14 +105,12 @@ nnoremap confr :source $HOME/.vimrc<CR>
 " only load plugins if Plug detected
 if filereadable(expand("~/.vim/autoload/plug.vim"))
     call plug#begin('~/.local/share/vim/plugins')
-    Plug 'sainnhe/gruvbox-material' 
+    " PLUGINS GO HERE
     call plug#end()
 endif
 
 " better command-line completion
 set wildmenu
-
-autocmd vimenter * ++nested colorscheme gruvbox-material
 
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
