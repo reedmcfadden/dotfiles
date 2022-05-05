@@ -86,9 +86,6 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
@@ -126,11 +123,5 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-
-# START GPG KEY -----------------------------------------------------------------
-# if [ -r ~/.bash_profile ]; then echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile; \
-#   else echo 'export GPG_TTY=$(tty)' >> ~/.profile; fi
-
-# END GPG KEY -------------------------------------------------------------------
 
 force_color_prompt=yes
