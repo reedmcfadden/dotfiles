@@ -2,18 +2,6 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-# environment variables 
-export NOTES="$HOME/repos/notes"
-export DAILY="$HOME/repos/daily"
-export REPOS="$HOME/repos"
-export DOTFILES="$REPOS/dotfiles"
-export SCRIPTS="$DOTFILES/scripts"
-export ZETTELS="$REPOS/zettelkasten"
-export CLASSES="$HOME/Documents/sau/classes"
-export TERM=xterm-256color
-
-color_prompt=yes
-
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -46,6 +34,16 @@ shopt -s checkwinsize
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
+
+# set a fancy prompt (non-color, unless we know we "want" color)
+case "$TERM" in
+    xterm-color|*-256color) color_prompt=yes;;
+esac
+
+# uncomment for a colored prompt, if the terminal has the capability; turned
+# off by default to not distract the user: the focus in a terminal window
+# should be on the output of commands, not on the prompt
+#force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
@@ -86,6 +84,9 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
+# colored GCC warnings and errors
+#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
@@ -94,15 +95,6 @@ alias l='ls -CF'
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
-# alias for easily cd'ing (jumping) to frequently used directories
-alias notes='cd $NOTES'
-alias daily='cd $DAILY'
-alias dotfiles='cd $DOTFILES'
-alias repos='cd $REPOS'
-alias scripts='cd $SCRIPTS'
-alias zets='cd $ZETTELS'
-alias classes='cd $CLASSES'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -123,5 +115,14 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+. "$HOME/.cargo/env"
 
-force_color_prompt=yes
+# Personal aliases
+
+# FZF custom behavior
+export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# Get colors working in tmux
+alias tmux="TERM=xterm-256color tmux"
