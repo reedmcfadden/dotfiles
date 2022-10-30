@@ -13,7 +13,8 @@ ln -sf "$PWD/.tmux.conf"    "$HOME/.tmux.conf"
 # Place scripts folder link in home directory
 ln -sf "$PWD/Scripts"       "$HOME/"   
 
+# Run nested installers
 for dir_name in vim; do
-    cd $dir_name && ./setup
+    cd $dir_name && ./install
     cd -
 done
