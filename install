@@ -3,15 +3,15 @@
 # Set shell to quit if an error occurs
 set -e
 
-
 # Create symlinks for .dotfiles not stored in a folder
 ln -sf "$PWD/.bash_profile" "$HOME/.bash_profile"
 ln -sf "$PWD/.bashrc"       "$HOME/.bashrc"
 ln -sf "$PWD/.profile"      "$HOME/.profile"
 ln -sf "$PWD/.profile"      "$HOME/.bash_profile"
+ln -sf "$PWD/.tmux.conf"    "$HOME/.tmux.conf"
 
 # Place scripts folder link in home directory
-ln -sf "$PWD/scripts"       "$HOME/"   
+ln -sf "$PWD/Scripts"       "$HOME/"   
 
 for dir_name in vim; do
     cd $dir_name && ./setup
