@@ -33,3 +33,6 @@ export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$HOME/scripts
 
 export GPG_TTY=$(tty)
+
+# Source rust
+. "$HOME/.cargo/env"
