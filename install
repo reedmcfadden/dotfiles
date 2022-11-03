@@ -3,12 +3,16 @@
 # Set shell to quit if an error occurs
 set -e
 
+# Make i3 config dir
+mkdir -p "$HOME/.config/i3"
+
 # Create symlinks for .dotfiles not stored in a folder
 ln -sf "$PWD/.bash_profile" "$HOME/.bash_profile"
 ln -sf "$PWD/.bashrc"       "$HOME/.bashrc"
 ln -sf "$PWD/.profile"      "$HOME/.profile"
 ln -sf "$PWD/.profile"      "$HOME/.bash_profile"
 ln -sf "$PWD/.tmux.conf"    "$HOME/.tmux.conf"
+ln -sf "$PWD/i3/config"    "$HOME/.config/i3/config"
 
 # Place scripts folder link in home directory
 ln -sf "$PWD/Scripts"       "$HOME/"   
