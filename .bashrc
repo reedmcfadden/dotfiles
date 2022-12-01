@@ -126,3 +126,6 @@ export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
 
 # Get colors working in tmux
 alias tmux="TERM=xterm-256color tmux"
+
+# Get gpg working
+export GPG_TTY=$(tty)
