@@ -117,6 +117,9 @@ if ! shopt -oq posix; then
 fi
 . "$HOME/.cargo/env"
 
+# enable vi mode in tty
+set -o vi
+
 # Personal aliases
 
 # FZF custom behavior
@@ -129,3 +132,31 @@ alias tmux="TERM=xterm-256color tmux"
 
 # Get gpg working
 export GPG_TTY=$(tty)
+
+# Navigation exports and alias pairs
+export REPOS="~/Repos"
+alias repos="cd $REPOS"
+
+# get ssh agent when running bash or git shell
+env=~/.ssh/agent.env
+
+agent_load_env () { test -f "$env" && . "$env" >| /dev/null ; }
+
+agent_start () {
+    (umask 077; ssh-agent >| "$env")
+    . "$env" >| /dev/null ; }
+
+agent_load_env
+
+# agent_run_state: 0=agent running w/ key; 1=agent w/o key; 2=agent not running
+agent_run_state=$(ssh-add -l >| /dev/null 2>&1; echo $?)
+
+if [ ! "$SSH_AUTH_SOCK" ] || [ $agent_run_state = 2 ]; then
+    agent_start
+    ssh-add
+elif [ "$SSH_AUTH_SOCK" ] && [ $agent_run_state = 1 ]; then
+    ssh-add
+fi
+
+unset env
+# =============================================================================
