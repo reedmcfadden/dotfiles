@@ -137,6 +137,9 @@ export GPG_TTY=$(tty)
 export REPOS="~/Repos"
 alias repos="cd $REPOS"
 
+# Command aliases
+alias kanban="vim ~/Repos/kanban/personal_kanban.md"
+
 # get ssh agent when running bash or git shell
 env=~/.ssh/agent.env
 
