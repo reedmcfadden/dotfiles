@@ -139,6 +139,7 @@ alias repos="cd $REPOS"
 
 # Command aliases
 alias kanban="vim ~/Repos/kanban/personal_kanban.md"
+alias c="clear"
 
 # get ssh agent when running bash or git shell
 env=~/.ssh/agent.env
