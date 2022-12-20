@@ -4,8 +4,6 @@ set nocompatible
 " Helps force plugins to load correctly when it is turned back on below
 filetype off
 
-" TODO: Load plugins here (pathogen or vundle)
-
 " Turn on syntax highlighting
 syntax on
 
@@ -18,17 +16,18 @@ filetype plugin indent on
 " Security
 set modelines=0
 
-" Show line numbers
-set number
-
-" Show relative numbers
+" Show relative line number w/ overall number
 set relativenumber
+set number
 
 " Show file stats
 set ruler
 
 " Blink cursor on error instead of beeping (grr)
 set visualbell
+
+" Encoding
+set encoding=utf-8
 
 " Whitespace
 set wrap
@@ -90,6 +89,13 @@ set listchars=tab:▸\ ,eol:¬
 " Or use your leader key + l to toggle on/off
 map <leader>l :set list!<CR> " Toggle tabs and EOL
 
+" Color scheme (terminal)
+set t_Co=256
+set background=dark
+let g:solarized_termcolors=256
+let g:solarized_termtrans=1
+colorscheme gruvbox
+
 " Plugins
 call plug#begin()
 " The default plugin directory will be as follows:
@@ -101,28 +107,6 @@ call plug#begin()
 "   - Avoid using standard Vim directory names like 'plugin'
 
 " Make sure you use single quotes
-
-" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
-" Plug 'junegunn/vim-easy-align'
-
-" Any valid git URL is allowed
-" Plug 'https://github.com/junegunn/vim-github-dashboard.git'
-
-" Multiple Plug commands can be written in a single line using | separators
-" Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-
-" On-demand loading
-" Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-" Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-
-" Using a non-default branch
-" Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
-
-" Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
-" Plug 'fatih/vim-go', { 'tag': '*' }
-
-" Plugin options
-" Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
 
 " Plugin outside ~/.vim/plugged with post-update hook
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -139,15 +123,6 @@ call plug#end()
 " You can revert the settings after the call like so:
 "   filetype indent off   " Disable file-type-specific indentation
 "   syntax off            " Disable syntax highlighting
-
-" Enables vim colorschemes in tmux
-set t_Co=256
-
-" Color scheme (terminal)
-colorscheme gruvbox
-
-" Choose dark background
-set background=dark
 
 " COC setup
 " May need for vim (not neovim) since coc.nvim calculate byte offset by count
