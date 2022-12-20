@@ -133,9 +133,10 @@ alias tmux="TERM=xterm-256color tmux"
 # Get gpg working
 export GPG_TTY=$(tty)
 
- Navigation exports and alias pairs
-xport REPOS="~/Repos"
-lias repos="cd $REPOS"
+# Navigation exports and alias pairs
+export REPOS="~/Repos"
+alias repos="cd $REPOS"
+
 # navigation exports
 export REPOS="/home/rmcfadden/Repos"
 export SCRIPTS="/home/rmcfadden/Scripts"
