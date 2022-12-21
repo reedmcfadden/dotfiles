@@ -89,13 +89,6 @@ set listchars=tab:▸\ ,eol:¬
 " Or use your leader key + l to toggle on/off
 map <leader>l :set list!<CR> " Toggle tabs and EOL
 
-" Color scheme (terminal)
-set t_Co=256
-set background=dark
-let g:solarized_termcolors=256
-let g:solarized_termtrans=1
-colorscheme gruvbox
-
 " Plugins
 call plug#begin()
 " The default plugin directory will be as follows:
@@ -123,6 +116,13 @@ call plug#end()
 " You can revert the settings after the call like so:
 "   filetype indent off   " Disable file-type-specific indentation
 "   syntax off            " Disable syntax highlighting
+
+" Color scheme (terminal)
+set t_Co=256
+set background=dark
+let g:solarized_termcolors=256
+let g:solarized_termtrans=1
+colorscheme gruvbox
 
 " COC setup
 " May need for vim (not neovim) since coc.nvim calculate byte offset by count
