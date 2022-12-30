@@ -138,9 +138,9 @@ export REPOS="~/Repos"
 alias repos="cd $REPOS"
 
 # navigation exports
-export REPOS="/home/rmcfadden/Repos"
-export SCRIPTS="/home/rmcfadden/Scripts"
-export NOTES="/home/rmcfadden/Documents/Notes"
+export REPOS="/home/$USER/Repos"
+export SCRIPTS="/home/$USER/Scripts"
+export NOTES="/home/$USER/Documents/Notes"
 
 # navigation aliases
 alias scripts="cd $SCRIPTS"
@@ -153,6 +153,7 @@ alias gri="grep -ri"
 alias c="clear"
 alias kanban="vim ~/Documents/kanban.md"
 alias vfzf='vim $(fzf)'
+alias suspend="systemctl suspend -i"
 
 # add personal scripts directory to path
 PATH="$PATH:/snap/bin:~/Scripts"
