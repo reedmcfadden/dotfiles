@@ -12,7 +12,8 @@ ln -sf "$PWD/.bashrc"       "$HOME/.bashrc"
 ln -sf "$PWD/.profile"      "$HOME/.profile"
 ln -sf "$PWD/.profile"      "$HOME/.bash_profile"
 ln -sf "$PWD/.tmux.conf"    "$HOME/.tmux.conf"
-ln -sf "$PWD/i3/config"    "$HOME/.config/i3/config"
+ln -sf "$PWD/i3"            "$HOME/.config/i3"
+ln -sf "$PWD/alacritty"     "$HOME/.config/alacritty"
 
 # Place scripts folder link in home directory
 ln -sf "$PWD/Scripts"       "$HOME/"   
