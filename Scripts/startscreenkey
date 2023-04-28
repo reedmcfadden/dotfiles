@@ -1,0 +1,1 @@
+screenkey -p fixed -s small -g 30%x4%+70%+91% 1>/dev/null 2>&1 &
