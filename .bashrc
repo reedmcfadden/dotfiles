@@ -115,7 +115,6 @@ if ! shopt -oq posix; then
         . /etc/bash_completion
     fi
 fi
-. "$HOME/.cargo/env"
 
 # enable vi mode in tty
 set -o vi
