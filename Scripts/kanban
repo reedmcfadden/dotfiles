@@ -1,3 +1,3 @@
 #!/bin/sh
 
-vim $REPOS/notes/kanban.md
+vim $REPOS/kanban/kanban.md
