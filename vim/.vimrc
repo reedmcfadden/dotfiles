@@ -1,3 +1,6 @@
+" Prevent auto formatting for pasting
+set paste
+
 " Don't try to be vi compatible
 set nocompatible
 
