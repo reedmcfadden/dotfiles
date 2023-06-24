@@ -132,6 +132,9 @@ alias tmux="TERM=xterm-256color tmux"
 # Get gpg working
 export GPG_TTY=$(tty)
 
+# Set vi default editor
+export EDITOR="/usr/bin/vim"
+
 # Navigation exports and alias pairs
 export REPOS="~/Repos"
 alias repos="cd $REPOS"
@@ -150,9 +153,10 @@ alias notes="cd $NOTES"
 alias kanban="vim ~/Repos/kanban/personal_kanban.md"
 alias gri="grep -ri"
 alias c="clear"
-alias kanban="vim ~/Documents/kanban.md"
+alias kanban="vim ~/Repos/kanban/kanban.md"
 alias vfzf='vim $(fzf)'
 alias suspend="systemctl suspend -i"
+alias docker="/usr/bin/podman"
 
 # add personal scripts directory to path
 PATH="$PATH:/snap/bin:~/Scripts"
@@ -195,3 +199,5 @@ export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 
 # run starship for bash prompt
 eval "$(starship init bash)"
+
+devtmux
