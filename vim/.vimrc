@@ -1,5 +1,5 @@
 " Prevent auto formatting for pasting
-set paste
+" set paste
 
 " Don't try to be vi compatible
 set nocompatible
@@ -13,6 +13,9 @@ syntax on
 " For plugins to load correctly
 filetype plugin indent on
 
+" Turn on auto-indentation
+set autoindent cindent
+
 " TODO: Pick a leader key
 " let mapleader = ","
 
@@ -20,8 +23,7 @@ filetype plugin indent on
 set modelines=0
 
 " Show relative line number w/ overall number
-set relativenumber
-set number
+set relativenumber number
 
 " Show file stats
 set ruler

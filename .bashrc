@@ -150,7 +150,6 @@ alias repos="cd $REPOS"
 alias notes="cd $NOTES"
 
 # command aliases
-alias kanban="vim ~/Repos/kanban/personal_kanban.md"
 alias gri="grep -ri"
 alias c="clear"
 alias kanban="vim ~/Repos/kanban/kanban.md"
@@ -200,4 +199,5 @@ export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 # run starship for bash prompt
 eval "$(starship init bash)"
 
+# launch tmux with some sessions
 devtmux
