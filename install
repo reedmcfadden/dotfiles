@@ -24,7 +24,3 @@ for dir_name in vim; do
     cd $dir_name && ./install
     cd -
 done
-
-# installs starship. probably shouldn't be here
-curl -sS https://starship.rs/install.sh | sh
-

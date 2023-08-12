@@ -1,3 +1,3 @@
 #!/bin/bash
 
-vim $REPOS/my_notes/$(get_custom_time)_$@
+vim ~/Dropbox/Zettels/$(get_custom_time)_$@
