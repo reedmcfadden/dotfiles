@@ -158,7 +158,10 @@ alias suspend="systemctl suspend -i"
 alias docker="/usr/bin/podman"
 
 # add personal scripts directory to path
-PATH="$PATH:/snap/bin:~/Scripts"
+# TODO - imrpove by first checking if /sbin, etc. is in path. if not, then add
+# so that path doesn't get appended to repeatedly when sourcing the file for
+# testing, etc.
+PATH="$PATH:/sbin:/home/reed/Scripts"
 
 # run ssh-add on tty startup
 # TODO. put into function
