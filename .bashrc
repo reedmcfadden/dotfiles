@@ -161,7 +161,7 @@ alias docker="/usr/bin/podman"
 # TODO - imrpove by first checking if /sbin, etc. is in path. if not, then add
 # so that path doesn't get appended to repeatedly when sourcing the file for
 # testing, etc.
-PATH="$PATH:/sbin:/home/reed/Scripts"
+PATH="$PATH:/sbin:/home/reed/Scripts:/home/reed/.cargo/bin"
 
 # run ssh-add on tty startup
 # TODO. put into function
