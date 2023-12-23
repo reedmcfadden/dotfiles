@@ -6,6 +6,7 @@ set -e
 # Create symlinks for .dotfiles not stored in a folder
 ln -sf "$PWD/.bash_profile"         "$HOME/.bash_profile"
 ln -sf "$PWD/.bashrc"               "$HOME/.bashrc"
+ln -sf "$PWD/.vimrc"               "$HOME/.vimrc"
 ln -sf "$PWD/.profile"              "$HOME/.profile"
 ln -sf "$PWD/.profile"              "$HOME/.bash_profile"
 ln -sf "$PWD/i3/"                   "$HOME/.config/"
@@ -15,8 +16,3 @@ ln -sf "$PWD/tmux/tmux.conf.local"  "$HOME/.tmux.conf.local"
 # Place scripts folder link in home directory
 ln -sf "$PWD/Scripts"       "$HOME/"   
 
-# Run nested installers
-for dir_name in vim; do
-    cd $dir_name && ./install
-    cd -
-done
