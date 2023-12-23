@@ -1,6 +1,0 @@
-#!/bin/sh
-
-tmux new-session -n kanban -d
-tmux new-window -n dev
-tmux new-window -n build
-tmux attach-session

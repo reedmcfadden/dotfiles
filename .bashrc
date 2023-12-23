@@ -156,39 +156,13 @@ alias kanban="vim ~/Repos/kanban/kanban.md"
 alias vfzf='vim $(fzf)'
 alias suspend="systemctl suspend -i"
 alias docker="/usr/bin/podman"
+alias k="kubectl"
 
 # add personal scripts directory to path
 # TODO - imrpove by first checking if /sbin, etc. is in path. if not, then add
 # so that path doesn't get appended to repeatedly when sourcing the file for
 # testing, etc.
 PATH="$PATH:/sbin:/home/reed/Scripts:/home/reed/.cargo/bin"
-
-# run ssh-add on tty startup
-# TODO. put into function
-env=~/.ssh/agent.env
-
-agent_load_env () { test -f "$env" && . "$env" >| /dev/null ; }
-
-agent_start () {
-    (umask 077; ssh-agent >| "$env")
-    . "$env" >| /dev/null ; 
-}
-
-agent_load_env
-
-# agent_run_state: 0=agent running w/ key; 1=agent w/o key; 2=agent not running
-agent_run_state=$(ssh-add -l >| /dev/null 2>&1; echo $?)
-
-if [ ! "$SSH_AUTH_SOCK" ] || [ $agent_run_state = 2 ]; then
-    agent_start
-    ssh-add
-elif [ "$SSH_AUTH_SOCK" ] && [ $agent_run_state = 1 ];
-then
-    ssh-add
-fi
-
-unset env
-# =============================================================================
 
 # add colors to less
 export LESS_TERMCAP_mb=$'\E[1;31m'     # begin bold
@@ -198,6 +172,3 @@ export LESS_TERMCAP_so=$'\E[01;44;33m' # begin reverse video
 export LESS_TERMCAP_se=$'\E[0m'        # reset reverse video
 export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
 export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
-
-# launch tmux with some sessions
-devtmux
