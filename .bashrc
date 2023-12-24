@@ -157,6 +157,7 @@ alias vfzf='vim $(fzf)'
 alias suspend="systemctl suspend -i"
 alias docker="/usr/bin/podman"
 alias k="kubectl"
+alias vi="vim"      # alias vi to vim for less keystrokes
 
 # add personal scripts directory to path
 # TODO - imrpove by first checking if /sbin, etc. is in path. if not, then add
