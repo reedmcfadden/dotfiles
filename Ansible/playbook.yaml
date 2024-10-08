@@ -1,0 +1,10 @@
+- name: Basic Windows Setup
+  win_chocolatey:
+    name: 
+      - git
+      - discord
+      - GoogleChrome
+      - googledrive
+      - libreoffice
+      - vscode
+    state: present
