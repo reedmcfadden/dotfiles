@@ -1,0 +1,10 @@
+- name: Install needed packages
+  hosts: homelab
+  tasks: 
+    - name: Install packages
+      dnf:
+        name:
+          - vim
+          - python
+          - ansible
+        state: present
