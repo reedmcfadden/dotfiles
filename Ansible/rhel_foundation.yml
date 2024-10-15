@@ -1,0 +1,28 @@
+- name: Configure RHEL family baseline
+  hosts: homelab
+  tasks: 
+    - name: Install vital packages
+      package:
+        name:
+          - vi
+          - nftables
+          - fapolicyd
+        state: present
+
+    # TODO - would be nice to find a way to make turning off wifi and bluetooth idempotent
+    - name: Turn off wifi
+      command: nmcli radio wifi off
+      ignore_errors: yes
+
+    - name: Turn off bluetooth
+      command: rfkill block bluetooth
+      ignore_errors: yes
+
+    - name: Disable bluetooth service
+      systemd:
+        name: bluetooth
+        state: stopped
+        enabled: no
+
+    # TODO - add cron.daily to call selinux_enforcing.yml
+

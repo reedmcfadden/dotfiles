@@ -1,0 +1,13 @@
+- name: Baseline windows configs
+  hosts: windows
+  tasks:
+    - name: Install my windows packages
+      chocolatey.chocolatey.win_chocolatey:
+        name: 
+          - git
+          - discord
+          - GoogleChrome
+          - googledrive
+          - libreoffice
+          - vscode
+        state: present

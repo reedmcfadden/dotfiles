@@ -1,0 +1,40 @@
+- name: Install scc tool for rhel 9
+  hosts: linux
+  tasks:
+    # TODO - add conditional to check for presence of scc tool first and exiting if found
+    - name: Download scc tool
+      get_url:
+        url: "https://dl.dod.cyber.mil/wp-content/uploads/stigs/zip/scc-5.10_rhel9_x86_64_bundle.zip"
+        dest: "/tmp/"
+        mode: 0644
+
+    - name: Download scc gpg key
+      get_url:
+        url: "https://dl.dod.cyber.mil/wp-content/uploads/stigs/zip/RPM-GPG-KEY-scc-5.zip"
+        dest: "/tmp/"
+        mode: 0644
+
+    - name: Unzip scc tool
+      unarchive:
+        src: "/tmp/scc-5.10_rhel9_x86_64_bundle.zip"
+        dest: "/opt/"
+        remote_src: yes
+        mode: 0755
+
+    - name: Unzip scc gpg key and store under /etc/pki/rpm-gpg
+      unarchive:
+        src: "/tmp/RPM-GPG-KEY-scc-5.zip"
+        dest: "/etc/pki/rpm-gpg/"
+        remote_src: yes
+        mode: 0755
+
+    - name: Import scc gpg key
+      rpm_key:
+        state: present
+        key: "/etc/pki/rpm-gpg/RPM-GPG-KEY-scc-5.10"
+
+    - name: Install scc rpm
+      yum:
+        name: "/opt/scc-5.10_rhel9_x86_64/scc-5.10.rhel9.x86_64.rpm"
+        state: present
+
