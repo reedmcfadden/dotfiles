@@ -34,7 +34,7 @@
         key: "/etc/pki/rpm-gpg/RPM-GPG-KEY-scc-5.10"
 
     - name: Install scc rpm
-      yum:
+      dnf:
         name: "/opt/scc-5.10_rhel9_x86_64/scc-5.10.rhel9.x86_64.rpm"
         state: present
 
