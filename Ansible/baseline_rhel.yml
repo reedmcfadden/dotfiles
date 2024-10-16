@@ -1,12 +1,15 @@
 - name: Configure RHEL family baseline
-  hosts: homelab
+  hosts: homelab_rhel_family
   tasks: 
     - name: Install vital packages
       package:
         name:
           - vi
+          - vim
           - nftables
           - fapolicyd
+          - unzip
+          - openscap-scanner
         state: present
 
     # TODO - would be nice to find a way to make turning off wifi and bluetooth idempotent
@@ -23,6 +26,8 @@
         name: bluetooth
         state: stopped
         enabled: no
+      ignore_errors: yes
 
     # TODO - add cron.daily to call selinux_enforcing.yml
 
+# TODO - could add additional plays in this one for other linux families to keep it in one file if desired.
