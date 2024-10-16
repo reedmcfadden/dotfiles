@@ -1,5 +1,5 @@
 - name: Install scc tool for rhel 9
-  hosts: linux
+  hosts: homelab_rhel_family
   tasks:
     # TODO - add conditional to check for presence of scc tool first and exiting if found
     - name: Download scc tool
@@ -38,3 +38,17 @@
         name: "/opt/scc-5.10_rhel9_x86_64/scc-5.10.rhel9.x86_64.rpm"
         state: present
 
+    - name: Install httpd for viewing the report
+      package:
+        name: httpd
+        state: present
+
+    - name: Start and enable httpd service
+      systemd:
+        name: httpd
+        state: started
+        enabled: yes
+
+
+
+# TODO - could add an additional play in this file for other families if I start using them and if desired to keep all this logic in one file rather than spread across multiple riles i.e. rhel_scc_install... debian_scc_instal... suse_scc_install... arch_scc_install...
