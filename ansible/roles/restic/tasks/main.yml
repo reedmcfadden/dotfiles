@@ -1,0 +1,51 @@
+---
+# Restic backup configuration
+
+- name: Install restic
+  become: true
+  dnf:
+    name: restic
+    state: present
+
+- name: Create restic config directory
+  file:
+    path: "{{ home }}/.config/restic"
+    state: directory
+    mode: '0700'
+
+- name: Deploy restic env template
+  template:
+    src: env.j2
+    dest: "{{ home }}/.config/restic/env"
+    mode: '0600'
+    force: false  # Don't overwrite if exists (preserves secrets)
+
+- name: Create systemd user directory
+  file:
+    path: "{{ home }}/.config/systemd/user"
+    state: directory
+    mode: '0755'
+
+- name: Deploy restic backup service
+  template:
+    src: restic-backup.service.j2
+    dest: "{{ home }}/.config/systemd/user/restic-backup.service"
+    mode: '0644'
+
+- name: Deploy restic backup timer
+  template:
+    src: restic-backup.timer.j2
+    dest: "{{ home }}/.config/systemd/user/restic-backup.timer"
+    mode: '0644'
+
+- name: Reload systemd user daemon
+  systemd:
+    daemon_reload: true
+    scope: user
+
+- name: Enable restic backup timer
+  systemd:
+    name: restic-backup.timer
+    enabled: true
+    state: started
+    scope: user
