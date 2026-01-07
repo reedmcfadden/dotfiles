@@ -17,6 +17,7 @@ cli_packages:
 utility_packages:
   - ripgrep
   - fzf
+  - gh
 
 # Desktop/GUI apps
 desktop_packages:
