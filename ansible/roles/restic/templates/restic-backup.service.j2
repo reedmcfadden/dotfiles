@@ -1,0 +1,9 @@
+[Unit]
+Description=Restic backup
+
+[Service]
+Type=oneshot
+EnvironmentFile=%h/.config/restic/env
+ExecStart=/usr/bin/restic backup %h {% for exclude in restic_excludes %}--exclude='{{ exclude }}' {% endfor %}
+
+ExecStartPost=/usr/bin/restic forget --keep-daily {{ restic_keep_daily }} --keep-weekly {{ restic_keep_weekly }} --keep-monthly {{ restic_keep_monthly }} --prune
