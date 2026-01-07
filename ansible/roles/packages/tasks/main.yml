@@ -1,0 +1,29 @@
+---
+# All package installation: repos, CLI tools, GUI apps, dev tools
+
+- name: Enable RPM Fusion Free
+  become: true
+  dnf:
+    name: "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ ansible_distribution_major_version }}.noarch.rpm"
+    state: present
+    disable_gpg_check: true
+
+- name: Enable RPM Fusion Nonfree
+  become: true
+  dnf:
+    name: "https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ ansible_distribution_major_version }}.noarch.rpm"
+    state: present
+    disable_gpg_check: true
+
+- name: Install all packages
+  become: true
+  dnf:
+    name: "{{ cli_packages + utility_packages + desktop_packages + dev_packages + python_packages + container_packages }}"
+    state: present
+
+- name: Install Flatpak apps
+  community.general.flatpak:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ flatpak_apps }}"
+  when: flatpak_apps | length > 0
