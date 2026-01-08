@@ -15,7 +15,7 @@ Or manually:
 ```bash
 sudo dnf install -y ansible git
 git clone git@github.com:reedmcfadden/workstation.git ~/Repos/workstation
-cd ~/Repos/workstation/ansible
+cd ~/Repos/workstation
 ansible-playbook setup.yml --ask-become-pass
 ```
 
@@ -74,4 +74,4 @@ restic restore latest --target /tmp/restore --include Documents
 
 ## Customization
 
-Edit package lists in `ansible/roles/packages/vars/main.yml`.
+Edit package lists in `roles/packages/vars/main.yml`.
