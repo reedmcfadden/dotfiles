@@ -14,5 +14,6 @@
   roles:
     - packages
     - dotfiles
+    - gnome
     - restic
     - wallpaper
