@@ -24,7 +24,7 @@ fi
 
 # Run ansible playbook
 echo "[3/4] Running Ansible playbook..."
-cd "$WORKSTATION_DIR/ansible"
+cd "$WORKSTATION_DIR"
 ansible-playbook setup.yml --ask-become-pass
 
 echo "[4/4] Bootstrap complete!"
