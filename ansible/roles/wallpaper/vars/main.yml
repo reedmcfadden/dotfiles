@@ -1,0 +1,3 @@
+---
+wallpaper_dir: "{{ home }}/Pictures/Wallpapers"
+wallpaper_interval: "15m"  # systemd timer format: 30m, 1h, etc.
