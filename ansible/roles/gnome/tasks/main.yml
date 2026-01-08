@@ -1,0 +1,14 @@
+---
+# GNOME desktop settings
+
+- name: Set dark mode
+  command: gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+  changed_when: false
+
+- name: Enable night light
+  command: gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled true
+  changed_when: false
+
+- name: Set monospace font
+  command: gsettings set org.gnome.desktop.interface monospace-font-name 'Source Code Pro 11'
+  changed_when: false
