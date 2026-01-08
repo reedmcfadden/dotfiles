@@ -9,9 +9,10 @@
   vars:
     user: "{{ ansible_user_id }}"
     home: "{{ ansible_env.HOME }}"
-    dotfiles_dir: "{{ home }}/Repos/dotfiles"
+    workstation_dir: "{{ home }}/Repos/workstation"
 
   roles:
     - packages
     - dotfiles
     - restic
+    - wallpaper

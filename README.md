@@ -1,21 +1,21 @@
-# dotfiles
+# workstation
 
-Personal laptop configuration using Ansible. Includes package installation, dotfiles, and automated restic backups to S3.
+Personal laptop configuration using Ansible. Includes package installation, dotfiles, wallpaper rotation, and automated restic backups to S3.
 
 ## Quick Start
 
 On a fresh Fedora install:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/reedmcfadden/dotfiles/main/bootstrap.sh | bash
+curl -fsSL https://raw.githubusercontent.com/reedmcfadden/workstation/main/bootstrap.sh | bash
 ```
 
 Or manually:
 
 ```bash
 sudo dnf install -y ansible git
-git clone git@github.com:reedmcfadden/dotfiles.git ~/Repos/dotfiles
-cd ~/Repos/dotfiles/ansible
+git clone git@github.com:reedmcfadden/workstation.git ~/Repos/workstation
+cd ~/Repos/workstation/ansible
 ansible-playbook setup.yml --ask-become-pass
 ```
 
@@ -28,6 +28,7 @@ ansible-playbook setup.yml --ask-become-pass
 | `packages` | CLI tools, desktop apps, dev tools, containers |
 | `dotfiles` | Symlinks .bashrc, .vimrc, .tmux.conf, .profile |
 | `restic` | Automated daily backups to S3 with systemd timer |
+| `wallpaper` | Wallpaper rotation from folder with systemd timer |
 
 ### Packages
 
