@@ -3,7 +3,7 @@
 
 - name: Symlink shell configs
   file:
-    src: "{{ workstation_dir }}/{{ item }}"
+    src: "{{ role_path }}/files/{{ item }}"
     dest: "{{ home }}/{{ item }}"
     state: link
     force: true
@@ -13,7 +13,7 @@
 
 - name: Symlink editor configs
   file:
-    src: "{{ workstation_dir }}/{{ item }}"
+    src: "{{ role_path }}/files/{{ item }}"
     dest: "{{ home }}/{{ item }}"
     state: link
     force: true
@@ -30,8 +30,8 @@
 
 - name: Symlink gitconfig if exists
   file:
-    src: "{{ workstation_dir }}/.gitconfig"
+    src: "{{ role_path }}/files/.gitconfig"
     dest: "{{ home }}/.gitconfig"
     state: link
     force: true
-  when: lookup('file', workstation_dir + '/.gitconfig', errors='ignore')
+  when: lookup('file', role_path + '/files/.gitconfig', errors='ignore')
