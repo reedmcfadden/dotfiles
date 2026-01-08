@@ -3,7 +3,7 @@
 
 - name: Symlink shell configs
   file:
-    src: "{{ dotfiles_dir }}/{{ item }}"
+    src: "{{ workstation_dir }}/{{ item }}"
     dest: "{{ home }}/{{ item }}"
     state: link
     force: true
@@ -13,7 +13,7 @@
 
 - name: Symlink editor configs
   file:
-    src: "{{ dotfiles_dir }}/{{ item }}"
+    src: "{{ workstation_dir }}/{{ item }}"
     dest: "{{ home }}/{{ item }}"
     state: link
     force: true
@@ -23,15 +23,15 @@
 
 - name: Ensure Scripts directory is linked
   file:
-    src: "{{ dotfiles_dir }}/Scripts"
+    src: "{{ workstation_dir }}/Scripts"
     dest: "{{ home }}/Scripts"
     state: link
     force: true
 
 - name: Symlink gitconfig if exists
   file:
-    src: "{{ dotfiles_dir }}/.gitconfig"
+    src: "{{ workstation_dir }}/.gitconfig"
     dest: "{{ home }}/.gitconfig"
     state: link
     force: true
-  when: lookup('file', dotfiles_dir + '/.gitconfig', errors='ignore')
+  when: lookup('file', workstation_dir + '/.gitconfig', errors='ignore')
