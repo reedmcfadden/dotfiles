@@ -1,0 +1,9 @@
+[Unit]
+Description=Rotate wallpaper timer
+
+[Timer]
+OnBootSec=1m
+OnUnitActiveSec={{ wallpaper_interval }}
+
+[Install]
+WantedBy=timers.target

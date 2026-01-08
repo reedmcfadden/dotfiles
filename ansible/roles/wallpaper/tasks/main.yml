@@ -1,0 +1,47 @@
+---
+# Wallpaper rotation setup
+
+- name: Create wallpaper directory
+  file:
+    path: "{{ wallpaper_dir }}"
+    state: directory
+    mode: '0755'
+
+- name: Create local bin directory
+  file:
+    path: "{{ home }}/.local/bin"
+    state: directory
+    mode: '0755'
+
+- name: Deploy rotate wallpaper script
+  template:
+    src: rotate-wallpaper.sh.j2
+    dest: "{{ home }}/.local/bin/rotate-wallpaper.sh"
+    mode: '0755'
+
+- name: Create systemd user directory
+  file:
+    path: "{{ home }}/.config/systemd/user"
+    state: directory
+    mode: '0755'
+
+- name: Deploy rotate wallpaper service
+  template:
+    src: rotate-wallpaper.service.j2
+    dest: "{{ home }}/.config/systemd/user/rotate-wallpaper.service"
+    mode: '0644'
+  notify: Reload systemd user daemon
+
+- name: Deploy rotate wallpaper timer
+  template:
+    src: rotate-wallpaper.timer.j2
+    dest: "{{ home }}/.config/systemd/user/rotate-wallpaper.timer"
+    mode: '0644'
+  notify: Reload systemd user daemon
+
+- name: Enable wallpaper rotation timer
+  systemd:
+    name: rotate-wallpaper.timer
+    enabled: true
+    state: started
+    scope: user
