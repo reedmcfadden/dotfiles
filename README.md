@@ -27,6 +27,7 @@ ansible-playbook setup.yml --ask-become-pass
 |------|-------------|
 | `packages` | CLI tools, desktop apps, dev tools, containers |
 | `dotfiles` | Symlinks .bashrc, .vimrc, .tmux.conf, .profile |
+| `gnome` | Dark mode, night light, and monospace font settings |
 | `restic` | Automated daily backups to S3 with systemd timer |
 | `wallpaper` | Wallpaper rotation from folder with systemd timer |
 
