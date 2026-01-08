@@ -26,3 +26,6 @@ unset rc
 
 # Enable vi mode
 set -o vi
+
+# Add blank line before prompt for readability
+PS1="\n$PS1"
